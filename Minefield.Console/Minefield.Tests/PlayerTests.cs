@@ -92,4 +92,13 @@ public class PlayerTests
         
         _player.Position.AsChessNotation().Should().Be("C3");
     }
+    
+    [Fact]
+    public void MoveCount_ShouldBeCorrect()
+    {
+        _player.Move(MoveCommand.Right);
+        _player.Move(MoveCommand.Right);
+        _player.Move(MoveCommand.Left);
+        _player.Moves.Should().Be(3);
+    }
 }

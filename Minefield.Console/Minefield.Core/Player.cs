@@ -5,12 +5,14 @@ public interface IPlayer
     void Hit();
     bool IsDead { get; }
     int Lives { get; }
+    int Moves { get; }
     Position Position { get; }
 }
 
 public class Player : IPlayer
 {
     private int _lives;
+    private int _moves = 0;
     private Position _position;
 
     public Player(int lives)
@@ -26,6 +28,7 @@ public class Player : IPlayer
         var currentX = _position.X;
         var currentY = _position.Y;
 
+        _moves++;
         _position = command switch
         {
             MoveCommand.Up => new Position(currentX, currentY + 1),
@@ -39,5 +42,6 @@ public class Player : IPlayer
     public void Hit() => _lives--;
     public bool IsDead => _lives <= 0;
     public int Lives => _lives;
+    public int Moves => _moves;
     public Position Position => _position;
 }
