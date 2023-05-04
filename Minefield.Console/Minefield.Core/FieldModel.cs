@@ -30,7 +30,9 @@ public class FieldModel : IField
         } while (CountMines() < _mines);
     }
 
-    public int CountMines() => FlattenMatrix().Count(m => m);
+    public bool IsHit(Vector2d position) => _matrix[position.X, position.Y];
+
+    private int CountMines() => FlattenMatrix().Count(m => m);
 
     private IEnumerable<bool> FlattenMatrix()
     {
