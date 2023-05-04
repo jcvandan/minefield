@@ -30,9 +30,21 @@ public class GameOrchestrator
         while (!_complete)
         {
             var key = Console.ReadKey();
+            
             var command = KeyToCommand(key.Key);
-            _player.Move(command);
+            MakeMove(command);
+
             Console.WriteLine(Status());
+        }
+    }
+
+    private void MakeMove(MoveCommand command)
+    {
+        _player.Move(command);
+        if (_field.IsHit(_player.Position))
+        {
+            Console.WriteLine("BOOM! You stepped on a mine...");
+            _player.Hit();
         }
     }
 

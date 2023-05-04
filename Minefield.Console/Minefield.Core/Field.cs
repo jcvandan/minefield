@@ -2,6 +2,8 @@
 
 public interface IField
 {
+    bool IsHit(Position position);
+    bool IsAtEnd(Position position);
 }
 
 public class Field : IField
