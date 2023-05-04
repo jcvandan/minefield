@@ -21,6 +21,21 @@ public class Player : IPlayer
         _position = new Position(0, 0);
     }
 
+    public void Move(MoveCommand command)
+    {
+        var currentX = _position.X;
+        var currentY = _position.Y;
+
+        _position = command switch
+        {
+            MoveCommand.Up => new Position(currentX, currentY + 1),
+            MoveCommand.Down => new Position(currentX, currentY - 1),
+            MoveCommand.Left => new Position(currentX - 1, currentY),
+            MoveCommand.Right => new Position(currentX + 1, currentY),
+            _ => throw new ArgumentOutOfRangeException(nameof(command), command, null)
+        };
+    }
+    
     public void Hit() => _lives--;
     public bool IsDead => _lives <= 0;
     public int Lives => _lives;
