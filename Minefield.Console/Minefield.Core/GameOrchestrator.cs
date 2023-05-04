@@ -40,7 +40,7 @@ public class GameOrchestrator
 
         if (HasReachedEnd)
         {
-            return $"Well done you reached the end without dying! Your score was {_player.Lives}";
+            return $"Well done you reached the end without dying! Your score was {_player.Moves}";
         }
 
         return $"Position: {_player.Position.AsChessNotation()} | Lives: {_player.Lives} | Moves: {_player.Moves}";

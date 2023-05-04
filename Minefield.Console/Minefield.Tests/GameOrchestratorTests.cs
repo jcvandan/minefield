@@ -39,9 +39,9 @@ public class GameOrchestratorTests
     public void PlayerReachesEnd_ShouldShowInStatus()
     {
         _playerMock.Setup(p => p.IsDead).Returns(false);
-        _playerMock.Setup(p => p.Lives).Returns(5);
+        _playerMock.Setup(p => p.Moves).Returns(6);
         _fieldMock.Setup(p => p.IsAtEnd(It.IsAny<Position>())).Returns(true);
         
-        _game.Status().Should().Be($"Well done you reached the end without dying! Your score was {5}");
+        _game.Status().Should().Be("Well done you reached the end without dying! Your score was 6");
     }
 }
