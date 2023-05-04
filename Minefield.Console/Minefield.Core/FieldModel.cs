@@ -16,10 +16,10 @@ public class FieldModel : IField
         _mines = mines;
         _matrix = new bool[size, size];
 
-        GenerateField();
+        PlaceMines();
     }
 
-    private void GenerateField()
+    private void PlaceMines()
     {
         var random = new Random((int) DateTime.UtcNow.Ticks);
         do
