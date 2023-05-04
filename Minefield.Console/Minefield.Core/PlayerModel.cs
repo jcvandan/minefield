@@ -1,6 +1,12 @@
 ﻿namespace Minefield.Core;
 
-public class PlayerModel
+public interface IPlayer
+{
+    void Hit();
+    bool IsDead();
+}
+
+public class PlayerModel : IPlayer
 {
     private int _lives;
 
