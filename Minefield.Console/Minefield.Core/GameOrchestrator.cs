@@ -4,14 +4,15 @@ public class GameOrchestrator
 {
     private readonly IField _field;
     private readonly IPlayer _player;
-    private bool _complete;
 
     public GameOrchestrator(IField field, IPlayer player)
     {
         _field = field;
         _player = player;
-        _complete = false;
     }
+
+    private bool HasReachedEnd => _field.IsAtEnd(_player.Position); 
+    private bool IsComplete => HasReachedEnd || _player.IsDead;
 
     public string Status()
     {
@@ -19,7 +20,12 @@ public class GameOrchestrator
         {
             return "YOU DIED";
         }
-        
+
+        if (HasReachedEnd)
+        {
+            return $"Well done you reached the end without dying! Your score was {_player.Lives}";
+        }
+
         return $"Position: {_player.Position.AsChessNotation()} | Lives: {_player.Lives} | Moves: {_player.Moves}";
     }
 
@@ -27,7 +33,7 @@ public class GameOrchestrator
     {
         Console.WriteLine("Welcome to Minesweeper! Press Up/Down/Left/Right to move through the field.");
         
-        while (!_complete)
+        while (!IsComplete)
         {
             var key = Console.ReadKey();
             
@@ -36,6 +42,8 @@ public class GameOrchestrator
 
             Console.WriteLine(Status());
         }
+        
+        Console.ReadKey();
     }
 
     private void MakeMove(MoveCommand command)
