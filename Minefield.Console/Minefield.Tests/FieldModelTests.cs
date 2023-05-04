@@ -18,7 +18,7 @@ public class FieldModelTests
         for (var row = 0; row < fieldSize; row++)
         for (var col = 0; col < fieldSize; col++)
         {
-            if (field.IsHit(new Vector2d(row, col)))
+            if (field.IsHit(new Position(row, col)))
             {
                 hits++;
             }
