@@ -35,11 +35,9 @@ public class FieldModel : IField
     private IEnumerable<bool> FlattenMatrix()
     {
         for (var row = 0; row < _matrix.GetLength(0); row++)
+        for (var col = 0; col < _matrix.GetLength(1); col++)
         {
-            for (var col = 0; col < _matrix.GetLength(1); col++)
-            {
-                yield return _matrix[row, col];
-            }
+            yield return _matrix[row, col];
         }
     }
 }
