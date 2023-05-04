@@ -14,21 +14,6 @@ public class GameOrchestrator
     private bool HasReachedEnd => _field.IsAtEnd(_player.Position); 
     private bool IsComplete => HasReachedEnd || _player.IsDead;
 
-    public string Status()
-    {
-        if (_player.IsDead)
-        {
-            return "YOU DIED";
-        }
-
-        if (HasReachedEnd)
-        {
-            return $"Well done you reached the end without dying! Your score was {_player.Lives}";
-        }
-
-        return $"Position: {_player.Position.AsChessNotation()} | Lives: {_player.Lives} | Moves: {_player.Moves}";
-    }
-
     public void Start()
     {
         Console.WriteLine("Welcome to Minesweeper! Press Up/Down/Left/Right to move through the field.");
@@ -44,6 +29,21 @@ public class GameOrchestrator
         }
         
         Console.ReadKey();
+    }
+
+    public string Status()
+    {
+        if (_player.IsDead)
+        {
+            return "YOU DIED";
+        }
+
+        if (HasReachedEnd)
+        {
+            return $"Well done you reached the end without dying! Your score was {_player.Lives}";
+        }
+
+        return $"Position: {_player.Position.AsChessNotation()} | Lives: {_player.Lives} | Moves: {_player.Moves}";
     }
 
     private void MakeMove(MoveCommand command)
