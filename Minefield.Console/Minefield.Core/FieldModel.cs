@@ -21,11 +21,11 @@ public class FieldModel : IField
 
     private void PlaceMines()
     {
-        var random = new Random((int) DateTime.UtcNow.Ticks);
+        var random = new Random();
         do
         {
-            var posX = random.Next(1, _fieldSize);
-            var posY = random.Next(1, _fieldSize);
+            var posX = random.Next(0, _fieldSize - 1);
+            var posY = random.Next(0, _fieldSize - 1);
             _matrix[posX, posY] = true;
         } while (CountMines() < _mines);
     }

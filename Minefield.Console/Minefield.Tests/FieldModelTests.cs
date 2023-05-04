@@ -5,18 +5,18 @@ namespace Minefield.Tests;
 
 public class FieldModelTests
 {
-    [Fact]
-    public void GivenAFieldOfSize5_And10Mines_TraversingWholeField_ShouldResultIn10Hits()
+    [Theory]
+    [InlineData(5, 10)]
+    [InlineData(1, 1)]
+    [InlineData(50, 50)]
+    public void GivenAFieldSize_AndNumberMines_TraversingWholeField_ShouldResultInCorrectHits(int fieldSize, int numberMines)
     {
-        const int fieldSize = 5;
-        const int numberMines = 10;
-        
         var field = new FieldModel(fieldSize, numberMines);
 
         var hits = 0;
         
-        for (var row = 0; row < 5; row++)
-        for (var col = 0; col < 5; col++)
+        for (var row = 0; row < fieldSize; row++)
+        for (var col = 0; col < fieldSize; col++)
         {
             if (field.IsHit(new Vector2d(row, col)))
             {
@@ -24,6 +24,6 @@ public class FieldModelTests
             }
         }
 
-        hits.Should().Be(10);
+        hits.Should().Be(numberMines);
     }
 }
