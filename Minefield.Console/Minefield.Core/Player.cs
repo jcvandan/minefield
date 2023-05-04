@@ -7,6 +7,7 @@ public interface IPlayer
     int Lives { get; }
     int Moves { get; }
     Position Position { get; }
+    void Move(MoveCommand command);
 }
 
 public class Player : IPlayer

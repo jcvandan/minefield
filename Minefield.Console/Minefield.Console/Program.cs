@@ -1,3 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Minefield.Core;
 
-Console.WriteLine("Hello, World!");
+var game = new GameOrchestrator(
+    new Field(5, 10),
+    new Player(5)
+);
+
+game.Start();
