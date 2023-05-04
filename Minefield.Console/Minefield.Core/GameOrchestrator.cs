@@ -13,5 +13,5 @@ public class GameOrchestrator
         _player = player;
     }
 
-    public string Status() => $"Position: {_player.Position} | Lives: {_player.Lives} | Moves: {_moves}";
+    public string Status() => $"Position: {_player.Position.AsChessNotation()} | Lives: {_player.Lives} | Moves: {_moves}";
 }
