@@ -16,7 +16,7 @@ public class GameOrchestratorTests
     }
     
     [Fact]
-    public void GameJustStarted_()
+    public void GameJustStarted_ShouldPrintDefaultStatus()
     {
         _playerMock.Setup(p => p.Lives).Returns(5);
         _playerMock.Setup(p => p.Position).Returns(new Position(0, 0));

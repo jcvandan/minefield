@@ -8,12 +8,12 @@ public interface IPlayer
     Position Position { get; }
 }
 
-public class PlayerModel : IPlayer
+public class Player : IPlayer
 {
     private int _lives;
     private Position _position;
 
-    public PlayerModel(int lives)
+    public Player(int lives)
     {
         if (lives <= 0) throw new ArgumentOutOfRangeException();
         

@@ -3,7 +3,7 @@ using Minefield.Core;
 
 namespace Minefield.Tests;
 
-public class FieldModelTests
+public class FieldTests
 {
     [Theory]
     [InlineData(5, 10)]
@@ -11,7 +11,7 @@ public class FieldModelTests
     [InlineData(50, 50)]
     public void GivenAFieldSize_AndNumberMines_TraversingWholeField_ShouldResultInCorrectHits(int fieldSize, int numberMines)
     {
-        var field = new FieldModel(fieldSize, numberMines);
+        var field = new Field(fieldSize, numberMines);
 
         var hits = 0;
         

@@ -4,13 +4,13 @@ public interface IField
 {
 }
 
-public class FieldModel : IField
+public class Field : IField
 {
     private readonly bool[,] _matrix;
     private readonly int _fieldSize;
     private readonly int _mines;
 
-    public FieldModel(int size, int mines)
+    public Field(int size, int mines)
     {
         _fieldSize = size;
         _mines = mines;
