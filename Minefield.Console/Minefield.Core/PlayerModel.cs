@@ -15,7 +15,7 @@ public class PlayerModel : IPlayer
 
     public PlayerModel(int lives)
     {
-        if (_lives <= 0) throw new ArgumentOutOfRangeException();
+        if (lives <= 0) throw new ArgumentOutOfRangeException();
         
         _lives = lives;
         _position = new Position(0, 0);
