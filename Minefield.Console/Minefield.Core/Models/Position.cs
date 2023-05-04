@@ -1,5 +1,8 @@
 ﻿namespace Minefield.Core;
 
+/// <summary>
+/// A 2d vector, 0 based
+/// </summary>
 public record Position(int X, int Y)
 {
     public string AsChessNotation()

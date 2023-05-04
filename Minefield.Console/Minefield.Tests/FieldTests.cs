@@ -26,4 +26,18 @@ public class FieldTests
 
         hits.Should().Be(numberMines);
     }
+
+    [Fact]
+    public void IsAtEnd_IfLastColumn_ShouldBeTrue()
+    {
+        var field = new Field(5, 0);
+        field.IsAtEnd(new Position(4, 0)).Should().BeTrue();
+    }
+
+    [Fact]
+    public void IsAtEnd_IfNotLastColumn_ShouldBeFalse()
+    {
+        var field = new Field(5, 0);
+        field.IsAtEnd(new Position(3, 4)).Should().BeFalse();
+    }
 }

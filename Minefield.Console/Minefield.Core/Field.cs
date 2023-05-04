@@ -31,6 +31,7 @@ public class Field : IField
     }
 
     public bool IsHit(Position position) => _matrix[position.X, position.Y];
+    public bool IsAtEnd(Position position) => position.X == _fieldSize - 1;
 
     private int CountMines() => FlattenMatrix().Count(m => m);
 
