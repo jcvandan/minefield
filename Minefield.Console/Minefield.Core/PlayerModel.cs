@@ -12,6 +12,5 @@ public class PlayerModel
     }
 
     public void Hit() => _lives--;
-
     public bool IsDead() => _lives <= 0;
 }
