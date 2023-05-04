@@ -1,6 +1,10 @@
 ﻿namespace Minefield.Core;
 
-public class FieldModel
+public interface IField
+{
+}
+
+public class FieldModel : IField
 {
     
 }

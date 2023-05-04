@@ -17,7 +17,7 @@ public class PlayerModelTests
     {
         var player = new PlayerModel(1);
         player.Hit();
-        player.IsDead().Should().BeTrue();
+        player.IsDead.Should().BeTrue();
     }
     
     [Fact]
@@ -25,6 +25,6 @@ public class PlayerModelTests
     {
         var player = new PlayerModel(2);
         player.Hit();
-        player.IsDead().Should().BeFalse();
+        player.IsDead.Should().BeFalse();
     }
 }
